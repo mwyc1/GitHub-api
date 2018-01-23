@@ -1,17 +1,14 @@
-//showError();
-//showAvatar();
-//showInfo();
-//showRepositoryHead();
-//printRepositories();
-
 window.onload = function () {
     document.getElementById('search_button').addEventListener("click", function () {
         document.getElementById('error_and_info').innerHTML = "";
         document.getElementById('results').innerHTML = "";
         loadFirstJSON();
         //        loadSecondJSON();
+        console.log("kfjhbadfjhasjkdhlflsakjh");
     });
 }
+
+/*All these functions are only used to display html on index page from line 13 - 80 */
 
 function showError() {
     var error = document.getElementById("error_and_info");
@@ -38,7 +35,6 @@ function showInfo(data) {
     var username = data.login;
     var fullname = data.name
     var bio = data.bio;
-
     var info = document.getElementById("error_and_info");
     var outputInfo = "";
     outputInfo += "<div><p><i>@" + username + "</i></p></div>" +
@@ -57,16 +53,16 @@ function showRepositoryHead() {
         "<div class='dividerline'></div>" +
         "<div id='repos'></div>";
     var heading_and_line = document.createElement("div");
+    heading_and_line.setAttribute("class", "repositories");
     heading_and_line.innerHTML = outputRepoHead;
     header.append(heading_and_line);
 }
 
 function printRepositories(data) {
     console.log(data);
-    var repoName = data.name; 
+    var repoName = data.name;
     var repositoryForks = data.forks;
     var repositoryStargazers = data.stargazers_count;
-
     var repo = document.getElementById("repos");
     var outputRepos = "";
     outputRepos += "<div class='eachRepo_Details'>" +
@@ -76,15 +72,14 @@ function printRepositories(data) {
         "<img src='/images/fork.jpg'> " + repositoryForks +
         "</div> " +
         "</div>" +
-
         "<div class='eachRepo_underLine'></div>";
     var eachRepo = document.createElement("div");
     eachRepo.setAttribute("class", "eachRepo");
     eachRepo.innerHTML = outputRepos;
     repo.append(eachRepo);
-
 }
 
+/*these last two functions are used to call api and make logics.*/
 
 function loadFirstJSON() {
     var username = document.getElementById('username').value;
@@ -95,10 +90,10 @@ function loadFirstJSON() {
         if (xmlhttpName.readyState == 4) {
             if (xmlhttpName.status == 200) {
                 var obj = JSON.parse(xmlhttpName.responseText);
-
                 console.log(obj);
                 showAvatar(obj);
                 showInfo(obj);
+                showRepositoryHead();
                 loadSecondJSON();
             } else {
                 showError();
@@ -118,21 +113,13 @@ function loadSecondJSON() {
         if (xmlhttpRepo.readyState == 4) {
             if (xmlhttpRepo.status == 200) {
                 var obj = JSON.parse(xmlhttpRepo.responseText);
-
                 console.log(obj);
-                showRepositoryHead();
                 obj.forEach(function (value, key) {
                     printRepositories(value);
                 });
-                
                 document.getElementById('username').value = "";
-
             }
         }
     }
     xmlhttpRepo.send(null);
-}
-
-function search() {
-    console.log("hello ggggg");
 }

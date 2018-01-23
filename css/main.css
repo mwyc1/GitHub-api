@@ -17,8 +17,6 @@ body {
     box-shadow: 15px 15px 15px rgba(211, 211, 211, 0.9);
 }
 
-/*dasfsdfjashgncjaskgvakjfg*/
-
 #username {
     width: 60%;
     height: 40%;
@@ -55,7 +53,7 @@ body {
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -10px;
+    margin-top: -65px;
     box-shadow: 15px 15px 15px rgba(211, 211, 211, 0.9);
     display: flex;
 }
@@ -64,7 +62,7 @@ body {
     color: darkred;
     border: 1px solid darkred;
     background-color: lightpink;
-    width: 90%;
+    width: 88%;
     height: 60px;
     margin-bottom: 10px;
     margin-left: auto;
@@ -79,9 +77,10 @@ body {
 }
 
 .avatar {
-    width: 25%;
-    height: 120px;
+    width: 10%;
+    height: 100px;
     margin-left: 5%;
+    margin-top: 40px;
 }
 
 .foto {
@@ -97,6 +96,7 @@ body {
     width: 65%;
     height: auto;
     margin-left: 15px;
+    margin-top: 50px;
 }
 
 p {
@@ -113,22 +113,30 @@ h1 {
 }
 
 #results {
+
     width: 60%;
     height: auto;
     background-color: white;
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -35px;
+    margin-top: -65px;
     box-shadow: 15px 15px 15px rgba(211, 211, 211, 0.9);
     display: flex;
 }
 
+.repositories {
+    width: 90%;
+    height: 423px;
+    margin-left: 5%;
+    margin-top: 40px;
+}
+
 h2 {
-    font-size: 14pt;
+    font-size: 16pt;
     font-weight: bold;
     margin-left: 5%;
-    margin-top: 35px;
+    margin-top: 80px;
 }
 
 .dividerline {
